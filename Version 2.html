@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+<title>Convertisseur - Version 2</title>
+<style>
+  /* --- Mise en forme simple du tableau --- */
+  table {
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  td, th {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+  }
+  th {
+    background-color: #ddd;
+  }
+  img {
+    width: 50px;
+    height: 50px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Convertisseur</h2>
+
+<!-- Tableau contenant les trois devises -->
+<table>
+  <tr><th colspan="3">Convertisseur</th></tr>
+
+  <!-- Champ Euro -->
+  <tr>
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg" alt="Euro"></td>
+    <td>Euros</td>
+    <!-- Quand l'utilisateur modifie cette case, la fonction majDepuisEuro() est appelée -->
+    <td><input type="number" id="euro" value="1" oninput="majDepuisEuro()"></td>
+  </tr>
+
+  <!-- Champ Dollar américain -->
+  <tr>
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg" alt="USD"></td>
+    <td>Dollar Américain</td>
+    <td><input type="number" id="usd" value="1.01" oninput="majDepuisUSD()"></td>
+  </tr>
+
+  <!-- Champ Dollar australien -->
+  <tr>
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Flag_of_Australia.svg" alt="AUD"></td>
+    <td>Dollar Australien</td>
+    <td><input type="number" id="aud" value="1.47" oninput="majDepuisAUD()"></td>
+  </tr>
+</table>
+
+<script>
+/* --- Taux de conversion fixes --- */
+const tauxUSD = 1.01; // 1 EUR = 1.01 USD
+const tauxAUD = 1.47; // 1 EUR = 1.47 AUD
+
+/* --- Conversion depuis les euros --- */
+function majDepuisEuro() {
+  let euro = parseFloat(document.getElementById('euro').value);
+
+  // Met à jour les deux autres champs
+  document.getElementById('usd').value = (euro * tauxUSD).toFixed(2);
+  document.getElementById('aud').value = (euro * tauxAUD).toFixed(2);
+}
+
+/* --- Conversion depuis les dollars américains --- */
+function majDepuisUSD() {
+  let usd = parseFloat(document.getElementById('usd').value);
+
+  // Reconvertit en euros, puis met à jour les autres devises
+  let euro = usd / tauxUSD;
+  document.getElementById('euro').value = euro.toFixed(2);
+  document.getElementById('aud').value = (euro * tauxAUD).toFixed(2);
+}
+
+/* --- Conversion depuis les dollars australiens --- */
+function majDepuisAUD() {
+  let aud = parseFloat(document.getElementById('aud').value);
+
+  // Reconvertit en euros, puis met à jour les autres devises
+  let euro = aud / tauxAUD;
+  document.getElementById('euro').value = euro.toFixed(2);
+  document.getElementById('usd').value = (euro * tauxUSD).toFixed(2);
+}
+</script>
+
+</body>
+</html>

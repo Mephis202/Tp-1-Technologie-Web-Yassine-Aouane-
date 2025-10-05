@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<head>
+    <title>Formulaires - Exemple</title>
+    <!--
+        Feuille de style CSS pour la mise en forme du formulaire
+
+    -->
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Police principale */
+            font-size: 13px; /* Taille réduite pour tout le contenu */
+        }
+        .container {
+            width: 350px; /* Largeur fixe du formulaire */
+            border: 1px solid #7a9cc6; /* Bordure bleue */
+            margin: 30px;
+            background: #fff;
+            font-size: 13px;
+        }
+        .section {
+            padding: 10px 15px; /* Espacement interne des sections */
+        }
+        .section:not(:last-child) {
+            border-bottom: 2px solid #aaa; /* Séparation entre les sections */
+        }
+        h2 {
+            font-size: 1.15em; /* Titre de section */
+            margin: 0 0 5px 0;
+        }
+        h3 {
+            font-size: 1em;
+            margin: 10px 0 5px 0;
+        }
+        a {
+            color: #7a2ebc; /* Couleur du lien Wikipedia */
+            text-decoration: underline;
+        }
+        .google-img {
+            display: block;
+            margin: 10px auto 10px auto; /* Centrage de l'image Google */
+            width: 220px;
+        }
+        .form-group {
+            margin-bottom: 10px; /* Espacement entre les éléments du formulaire */
+        }
+        .progress {
+            width: 80%; /* Largeur de la barre de progression */
+            height: 8px;
+            background: #eee;
+            border-radius: 4px;
+            margin: 5px 0;
+            position: relative;
+        }
+        .progress-bar {
+            height: 100%; /* Remplissage de la barre */
+            border-radius: 4px;
+        }
+        .progress-download {
+            background: linear-gradient(90deg, #3a8dde 70%, #eee 70%); /* Barre bleue pour téléchargement */
+            width: 70%;
+        }
+        .progress-space {
+            background: linear-gradient(90deg, #2ecc40 40%, #eee 40%); /* Barre verte pour espace disponible */
+            width: 40%;
+        }
+        label {
+            margin-right: 10px;
+        }
+        .volume-label {
+            margin-left: 10px;
+        }
+        input[type="range"] {
+            width: 60%; /* Largeur de la jauge de volume */
+            accent-color: #3a8dde; /* Couleur bleue de la jauge */
+        }
+        .radio-group label {
+            margin-right: 15px;
+        }
+        .progress-row {
+            display: flex; /* Pour aligner le texte et la barre sur la même ligne */
+            align-items: center;
+            font-size: 0.95em;
+            margin-bottom: 5px;
+        }
+        .progress-row .progress {
+            margin: 0 0 0 10px; /* Espacement entre le texte et la barre */
+            width: 60%;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        Début du formulaire principal
+    -->
+    <div class="container">
+    <!-- Section : Lien et image Google -->
+    <div class="section">
+            <h2>Lien et images</h2>
+            <a href="https://fr.wikipedia.org/wiki/Wikip%C3%A9dia" target="_blank">La page principale de Wikipedia</a>
+            <!-- Logo Google -->
+            <img class="google-img" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google">
+        </div>
+    <!-- Section : Eléments de formulaire -->
+    <div class="section">
+            <h2>Des éléments !</h2>
+            <div class="form-group">
+                <!-- Champ texte -->
+                <input type="text" value="Premiers pas avec Javascript">
+            </div>
+            <div class="form-group radio-group">
+                <!-- Boutons radio -->
+                <label id="choix1"><input type="radio" name="choix" value="1"> Choix N°1</label>
+                <label id="choix2"><input type="radio" name="choix" value="2" checked> Choix N°2</label>
+                <label id="choix3"><input type="radio" name="choix" value="3"> Choix N°3</label>
+            </div>
+            <div class="form-group">
+                <!-- Champ mot de passe -->
+                <input type="password" value="">
+            </div>
+            <div class="form-group">
+                <!-- Jauge de volume -->
+                <input type="range" min="0" max="100" value="40">
+                <span class="volume-label">Volume</span><br>
+                <span>0</span>
+            </div>
+            <div class="form-group">
+                <!-- Case à cocher -->
+                <label><input type="checkbox"> Une case à cocher</label>
+            </div>
+            <div class="form-group">
+                <!-- Champ date -->
+                <label>Date :</label>
+                <input type="text" placeholder="jj / mm / aaaa" style="width:120px;">
+            </div>
+            <div class="form-group">
+                <!-- Bouton de validation -->
+                <button>Ok</button>
+            </div>
+        </div>
+    <!-- Section : Barres de progression -->
+    <div class="section">
+            <h2>Barres de progression</h2>
+            <div class="progress-row">
+                <!-- Barre de progression bleue -->
+                <span>Téléchargement en cours :</span>
+                <div class="progress">
+                    <div class="progress-bar progress-download"></div>
+                </div>
+            </div>
+            <div class="progress-row">
+                <!-- Barre de progression verte -->
+                <span>Espace disponible :</span>
+                <div class="progress">
+                    <div class="progress-bar progress-space"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Inclusion du script JavaScript pour manipuler le formulaire -->
+    <script src="Formulaire.js"></script>
+</body>
+</html>
