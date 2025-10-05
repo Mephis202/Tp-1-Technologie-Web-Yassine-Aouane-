@@ -1,4 +1,4 @@
-# Tp-1-Technologie-Web-Yassine-Aouane-
+# Tp-1-JavaScript-Technologie-Web-Yassine-Aouane-
 
 # README
 
