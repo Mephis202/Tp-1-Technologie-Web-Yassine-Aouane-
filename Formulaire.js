@@ -10,7 +10,6 @@
 // 8. Récupérer l'année du champ date et l'afficher dans la console
 // 9. Animer les barres de progression
 
-// Le code est organisé par fonctionnalité, chaque bloc est précédé d'un commentaire explicatif
 
 document.addEventListener('DOMContentLoaded', function() {
     // --- 1. Modification du lien Wikipedia ---
